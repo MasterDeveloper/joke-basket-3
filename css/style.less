@@ -47,7 +47,7 @@ h1{.heading( normal,  64px,  @altFamily, @headingsColor, 0 0 20px);
 h2{.heading( 900,  33px,  @baseFamily, @SubheadingsColor, 0 0 10px);
 }
 h3{.heading( 900,  26px,  @baseFamily, @SubheadingsColor, 0 0 10px);}
-h4{.heading( bold,  21px,  @baseFamily, @themeColor, 0 0 10px);}
+h4{.heading( bold,  21px,  @baseFamily, @themeColor, 0 0 15px);}
 
 /* Links
 ______________________*/
@@ -60,7 +60,7 @@ a{
 	}
 }
 a:hover {
-	
+	color: @linkHoverColor;
 }
 
 /* p, blockquote, address
@@ -72,6 +72,7 @@ img{
 p{
 	margin-bottom:15px;
 }
+
 
 /************************
 	Theme Gradient Settings 
@@ -217,7 +218,7 @@ ______________________*/
 	}
 	.input-lg{
 		font-size:34px;
-		font-weight:100;
+		font-weight:300;
 		height:auto;
 		background:#efefef;
 		border-bottom-color:#efefef;
@@ -235,40 +236,11 @@ ______________________*/
 	
 }
 
-
-
-.shadow-bottom{
-	background:url(../images/bottom-shadow.png) no-repeat center top;
-	background-size: 100% auto;
-	padding-bottom:45px;
-}
-
 /******************************
 	Theme Box Settings 
 *******************************/
-.page-heading{
-}
-
-.rtl{
-	.page-heading{
-		background:url(../images/heading-left-corner-rtl.png) no-repeat right;
-		h2{
-			margin-right:0;
-			margin-left:37px;
-			border-right:1px solid #e5d197;
-			border-left:none;
-			.box-shadow(none);
-			&:before{
-				background:url(../images/heading-right-corner-rtl.png) no-repeat;
-				width:36px;
-				left:auto;
-				right:100%;
-			}
-		}
-	}
-}
 .border-bottom{
-	border-bottom: 1px solid #d9d5d5;
+	border-bottom: 1px dotted #d9d5d5;
 	padding-bottom:7px;
 	margin-bottom:20px;
 	.box-shadow(0 1px 0 white);
@@ -282,8 +254,32 @@ ______________________*/
 /**********************
 	 Theme Box
  **********************/
-.theme-box{
+#contents{
+	.theme-box{
+		.box-shadow(0 2px 2px lighten(@borderColor, 10%));
+		margin-bottom:60px;
+	}
+	.white-box{
+		margin-bottom:60px;
+	}
 }
+.theme-box{
+	position:relative;
+}
+.right-bottom-cartoon{
+	position:absolute;
+	bottom:0;
+	right:0;
+	margin-bottom:-60px;
+}
+.left-bottom-cartoon{
+	position:absolute;
+	bottom:0;
+	left:0;
+	margin-bottom:-60px;
+	z-index:99;
+}
+
 .box-header{
 	background:url(../images/box-header.png);
 	padding:5px 10px;
@@ -327,7 +323,6 @@ ______________________*/
 	.radius(3px);
 	.inner-section{
 		border:1px dashed @themeColor;
-		text-align:center;
 		padding:6px 6px 12px; 
 		.radius(3px);
 		h3{
@@ -338,76 +333,10 @@ ______________________*/
 		}
 	}
 }
-.box-footer{
-}
 .last-item{
 	margin-bottom:0;
 }
 
-/**********************
-	 Theme Tabs
- **********************/
-.theme-tabs-wrap{
-
-}
-.nav-tabs {
-	border-bottom:none;
-	> li{
-		> a{
-			margin:0 4px 0 0;
-			background: @themeColor;
-			color:white;
-			&:focus,
-			&:hover{
-				background:	@themeBg;
-				color: @themeColor;
-				border-color:@borderColor;
-				border-bottom-color:transparent;
-			}
-		}
-		&.active{
-			a{
-				background:	@themeBg;
-				color: @themeColor;
-				border-color:@borderColor;
-				border-bottom-color:transparent;
-				&:focus{
-					background:	@themeBg;
-					color: @themeColor;
-					border-color:@borderColor;
-					border-bottom-color:transparent;
-				}
-			}
-		}
-	}
-	
-}
-.tab-content{
-	border:1px solid @borderColor;
-	padding:15px;
-	background:@themeBg;
-	.radius(0 @baseRadius @baseRadius @baseRadius);
-	.content-section{
-		color: @textColor;
-		border:1px solid #9ecfde;
-		background:#e1f4fa;
-		padding:8px;
-		margin-bottom:20px;
-		.radius;
-		h4{
-			color: black;
-		}
-	}
-}
-.content-section{
-	.icons-list{
-		padding:0;
-		font-size:12px;
-		a{
-			color: @textColor;
-		}
-	}
-}
 
 
 /******************************
@@ -416,7 +345,7 @@ ______________________*/
 
 .theme-pagination{
 	padding:0;
-	margin:0;
+	margin:0 0 10px;
 	li{
 		display:inline;
 		display:inline-block;
@@ -449,10 +378,6 @@ ______________________*/
 	}
 
 }
-/******************************
-	Author Lists Settings 
-*******************************/
-
 
 /**********************************
 		Main Area Settings 
@@ -471,15 +396,74 @@ ______________________*/
 	padding:0 0 0 10px;
 }
 
+/**********************
+	 Theme Tabs
+ **********************/
+.theme-tabs-wrap{
+	padding:20px 10px 10px;
+}
+.nav-tabs {
+	border-bottom:3px solid #242938;	
+	> li{
+		> a{
+			margin:0 4px 0 0;
+			&:focus,
+			&:hover{
+				background: #242938;
+				color: white;
+				border-bottom-color:transparent;
+			}
+		}
+		&.active{
+			a{
+				background: #242938;
+				color: white;
+				border-bottom-color:transparent;
+				&:focus{
+					background: #242938;
+					color: white;
+					border-bottom-color:transparent;
+				}
+			}
+		}
+	}
+	
+}
+.tab-content{
+	padding:15px 0 0;
+	h3{
+		color:@themeColor;
+	}
+	.content-section{
+		color: @textColor;
+		border:1px solid #f4cafe;
+		background:#f5dffa;
+		padding:8px;
+		margin-bottom:20px;
+	}
+}
+.content-section{
+	.icons-list{
+		padding:0;
+		font-size:12px;
+		a{
+			color: @textColor;
+		}
+	}
+}
+
+
 
 /**********************************
 		Buttons Settings 
 ************************************/
+/*
 .social-icon {
     display: inline-block;
     padding: 6px 35px 6px 12px;
     position: relative;
 }
+
 .social-icon .facebook {
     background: #fff;
     border-radius: 6px;
@@ -491,7 +475,7 @@ ______________________*/
     top: 4px;
     width: 24px;
 }
-
+*/
 .login-section{
 	.btn{
 		color:@themeColor;
@@ -532,58 +516,39 @@ ______________________*/
 		color:white;
 	}
 }
-.submit-section{
-}
-.btn-success{
-	border: 1px solid #c0c3be;
-	.gradient(#d5ebc4, #e6f3dc);
-	color: #3b8f0f;
-	&:focus,
-	&:hover{
-		color: #3b8f0f;
-	}
-}
-.btn-danger{
-	border:1px solid #e49680;
-	color: #de684a;		
-	.gradient(#f6dbd3, #f9e9e4);
-	&:focus,
-	&:hover{
-		color: #de684a;
-	}
-}
-.btn-warning{
-	border: 1px solid #ffb232;
-	.gradient(#ffefd2, #fff4e0);
-	color: #de684a;
-	&:focus,
-	&:hover{
-		color: #de684a;
-	}
-}
-.btn-info{
-	border: 1px solid #59acc3;
-	.gradient(#c8e1e8, #daebef);
-	color: #157e9c;
-	&:focus,
-	&:hover{
-		color: #157e9c;
-	}
-	.facebook{
-		background: #157e9c;
-		color: #c8e1e8;
-	}
-}
-
-.btn-light-orange{
-}
-.btn-info{
-}
-
 .btn-row{
 	margin-bottom:25px;
 }
+.btn-section{
+	.btn{
+		margin-right:10px;
+		[class^="icon-"]{
+			border-right:1px solid rgba(255,255,255,0.2);
+			padding-right:8px;
+			margin-right:5px
+		}
+	}
+	.btn-primary{
+		.gradient(#116CC9, #0C60B4);
+	}
+}
+.rtl{
+	.btn-section{
+		.btn{
+			margin-right:0;
+			margin-left:10px;
+			[class^="icon-"]{
+				margin-right: 0;
+				margin-left:5px;
+				padding-right:0;
+				padding-left:8px;
+				border:none;
+				border-left:1px solid rgba(255, 255, 255, 0.2);
+			}
+		}
+}
 
+}
 
 
 /**********************************
@@ -610,12 +575,16 @@ ______________________*/
 	.box-shadow(2px 2px 2px @borderColor);
 	padding:7px;
 	.radius(10px);
-.input-group-btn{
-	background:none;
-		> .btn{
-		background: @themealt;
+	.input-group-btn{
+		background:none;
+			> .btn{
+				background: @themealt;
+				&:focus,
+				&:hover{
+					color:white;
+				}
+			}
 		}
-	}
 }
 .listing-wrap{
 	padding-top:25px;
@@ -626,7 +595,28 @@ ______________________*/
 .lead{
 	font-size:20px;
 	margin-bottom:10px;
+	font-weight:300;
 }
+.rate-section{
+	font-size:16px;
+	line-height:1.5;
+	margin:25px 0;
+	.icon-star{
+		font-size:1.4em;
+		color:black;
+		&:hover,
+		&.active{
+			color:@themeColor;
+		}
+	}
+}
+.fb-like-wrap{
+	padding:15px 0;
+	border-top: 1px dotted @borderColor;
+	border-bottom: 1px dotted @borderColor;
+	margin-bottom:40px;
+}
+
 
 /************************
 	Thumnails Settings 
@@ -636,10 +626,22 @@ ______________________*/
 	width:100%;
 	.radius(0);
 }
+.thumbnail-lg{
+	border:8px solid white;
+	background:#efefef;
+	img{
+		display:block;
+		margin:0 auto;
+	}
+}
+
 .thumbnail-wrap{
 	.img-thumbnail{
 		margin-bottom:20px;
 	}
+}
+.picture-joke-detail{
+	padding:0 25px 25px;
 }
 
 /************************
@@ -647,255 +649,73 @@ ______________________*/
 *************************/
 
 .joke-section{
-	padding:15px;
-	border: 1px solid #d9d5d4;
-	margin-bottom:35px;
-	.radius(8px);
-	.box-shadow(0 0 30px rgba(0,0,0,0.1) inset);
-	.joke-footer{
-		padding-top:15px;
-		border-top:1px solid #d9d5d4;
+	padding: 15px 8px 20px;
+	border-top:1px dashed @themeColor;
+	&:first-child{
+		padding-top:0;
+		border-top:none;
 	}
-	.btn, .badge{
-		margin-right:5px;
-	}
-	.joke-text{
-		color: #616161;
-	}
-	// new edition
-	h2{
-		color:#616161;
-		margin-bottom: 20px;
-		padding-bottom: 15px;
-		border-bottom:1px solid #d9d5d4;
+	.comment-section{
+		line-height:1.8;
+		font-weight:300;
+		background:#fcf3fe;
+		padding:20px 10px 10px;
+		border:1px solid #e6dae4;
+		border-bottom-color:transparent;
 		position:relative;
+		.radius(6px);
+		margin-bottom:35px;
 		&:before{
-			display:inline-block;
-			content:'';
-			width:15px;
-			height:15px;
-			.radius(50%);
-			background:#d9d5d4;
 			position:absolute;
 			top:100%;
-			left:0;
-			margin-top:-8px;
-		}
-	}
-	.box-footer{
-		border-top:1px solid;
-		margin:0 -15px;
-		padding:15px 15px 0;
-		.btn{
-			.radius(25px);
-			min-width:100px;
-			margin:5px;
-		}
-		p{
-			margin-bottom:0;
-			line-height:40px;
-		}
-	}
-	
-	
-	
-}
-// new add class for badge large.
-.badge-lg{
-	padding:6px 12px;
-	font-size:14px;
-	line-height:20px;
-	.radius(5px);
-}
-.badge-blue{
-	 background:#3d9cb8;
-	 border:1px solid #3d9cb8;
-	 vertical-align:middle;
-}
-
-.joke-section{
-	.joke-header{
-		margin-bottom:25px;
-		h2{
-			background:url(../images/header-bg.png) repeat-x;
-			padding:5px 10px 8px;
-			position:relative;
-			border-left:1px solid #e5d197;
-			margin-right:22px;
-			margin-top:0;
-			margin-left:-37px;
-			border-bottom:none;
-			color:#847036;
-			height:auto !important;
-			.radius(0);
-			.box-shadow(1px 0 0 rgba(255,255,255,0.5) inset);
-			&:before{
-				display:inline-block;
-				content:"";
-				background:url(../images/heading-right-corner.png) no-repeat;
-				top: 0;
-				bottom:0;
-				left:100%;
-				width:37px;
-				position:absolute;
-				margin-top:0;
-				height:auto;
-				.radius(0);
-				
-			}
-			.left-corner{
-				display:inline-block;
-				width:20px;
-				height:22px;
-				background:url(../images/left-corner.png) no-repeat;
-				position:absolute;
-				top:100%;
-				left:0;
-			}
+			left:10%;
+			display:inline-block;
+			background:url(../images/comments.png) no-repeat;
+			width:95px;
+			height:21px;
+			content:'';
 		}
 		
 	}
+	
 }
 
-.rtl{
-	.joke-section{
-		.joke-header{
-			h2{
-				border-right:1px solid #e5d197;
-				border-left: none;
-				margin:0 -37px 0 22px;
-				.box-shadow(none);
-				&:before{
-					background:url(../images/heading-right-corner-rtl.png) no-repeat;
-					right:100%;
-					left:auto;
-				}
-				.left-corner{
-					left:auto;
-					right:0;
-					background:url(../images/left-corner-rtl.png) no-repeat right;
-				}
-			}
-		}
-	}
-}
-.category-header{
-	background:@themeColor;
-	padding:4px 15px 6px;
-	border:1px solid #157e9c;
-	.box-shadow(0 0 0 1px rgba(255,255,255,0.5) inset);
-	.radius(7px 7px 0 0);
-	h3{
-		color:white;
-		font-weight:bold;
-		margin:0;
-		text-shadow:0 1px 0 rgba(51,51,51,1);
-	}
-}
-.sidebar-section{
-	.content-section{
-		background:#f7f7f7;
-		padding:15px;
-		border:1px solid @borderColor;
-		border-top:none;
-		.radius(0 0 7px 7px);
-		.btn{
-			text-shadow:0 1px 0 rgba(51,51,51,1);
-		}
-	}
-}
-.comments-wrap{
-	h3{
-		color: #157e9c;
-		font-size:30px;
-		.border-bottom;
-		.sep-left;
-	}
-	.comments-submit-section{
-		background: #d2edf4;
-		padding:20px;
-		margin-bottom:34px;
-		.input-group{
-			display:block;
-			padding:5px;
-			background:#fff1c9;
-		}
-		
-	}
-}
-.user-thumb{
-	float:left;
-	width:53px;
-	img{
-		width:100%;
-	}
-}
-.comments-section{
-	.border-bottom;
-	padding-bottom:10px;
-}
-.comments-detail{
-	margin-left:66px;
-	a{
-		color: #157E9C;
-	}
-	.comment-date{
-		color:	#157E9C;
-	}
-	.massage-box{
-		background:#efefef;
-		padding:10px 15px;
-		margin-bottom:10px;
-	}
-	.reply{
-		color: @textColor;
-	}
-	.like{
-		background:#30ba00;
-		display:inline-block;
-		padding:1px 3px 2px;
-		.radius(3px);
-		[class^="icon-"]{
-			color:white;
-		}
-	}
-}
 .recent-joke-wrap{
-	padding:0 15px;
+	[class^="col-"]{
+		margin-bottom:30px;
+		border-left:1px solid #cb8fb1;
+		&:first-child{
+			border-left:none;
+		}
+	}
 }
-.recent-joke{
-	background:#fff6dc;
-	padding:10px;
-	margin-bottom:30px;
-	border:1px solid #e2cd8f;
-	position:relative;
-	.radius(10px);
-	&:before{
-		display:inline-block;
-		background:	url(../images/comments-2.png) no-repeat;
-		content:'';
-		width: 40px;
-		height:10px;
-		position:absolute;
-		top:100%;
-		left:30%;
-		
+.rtl .recent-joke-wrap{
+	[class^="col-"]{
+		border-left:none;
+		border-right:1px solid #cb8fb1;
+		&:last-child{
+			border-right:none;
+		}
 	}
 }
 
+.recent-joke{
+	padding:0 15px;
+	position:relative;
+}
 .joke-footer{
-	color: #bc9c41;
+	font-size:12px;
 	.icon-star{
-		color:#828282;
+		color:@textColor;
 		&.active{
-			color: #ffdb70;
+			color: #8c1b5b;
 		}
 	}
 }
 .tagbar{
-	color:#b46507;
+	color:@themeColor;
 	a{
-		color: #b46507;
+		color: @themeColor;
 	}
 }
 
@@ -908,23 +728,20 @@ ______________________*/
 	position:relative;
 }
 .slider-content{
-	h4{
-		color:@textColor;
-	}
 	p{
-		color: @themeColor;
-		font-family: @altFamily;
 		font-size:18px;
+		font-weight:300;
 	}
 }
 .bx-controls-direction{
 	a{
 		position:absolute;
 		top:50%;
-		left:-15px;
+		left:-28px;
 		width:33px;
 		height:38px;
-		margin-top:-19px;
+		font-size:38px;
+		margin-top:-0.5em;
 		text-indent:999999px;
 	}
 	.bx-prev{
@@ -933,7 +750,7 @@ ______________________*/
 	.bx-next{
 		background:url(../images/right-arrow.png) no-repeat right top;
 		left:auto;
-		right:-15px;
+		right:-28px;
 	}
 }
 
@@ -1043,6 +860,7 @@ ______________________*/
 	ul{
 		list-style:none;
 		padding:0;
+		margin-bottom:20px;
 	}
 	li{
 		margin-bottom:5px;
@@ -1097,6 +915,12 @@ ______________________*/
 	text-align:center;
 }
 
+
+.container{
+	overflow:hidden;
+}
+
+
 /**********************
 	 SignUp/Login
  **********************/
@@ -1131,56 +955,10 @@ ______________________*/
 
 
 .joke-detail-section{
-	h2{
-		color: #62a6ba;
-		.sep-left;
-	}
+	padding:0 20px;
 	p{
-		font-size:18px;
-		font-family: @altFamily;
-	}
-}
-
-.separator{
-	.sep-icon{
-		width:125px;
-	}
-	td{
-		vertical-align:bottom;
-	}
-}
-.sep-left{
-	border-bottom:1px solid #d9d5d5;
-	position:relative;
-	margin-bottom:25px;
-	&:before{
-		display:inline-block;
-		content:"";
-		width:15px;
-		height:15px;
-		background:#d9d5d5;
-		position:absolute;
-		left:0;
-		top:100%;
-		margin-top:-7px;
-		.radius(50%);
-	}
-}
-.sep-right{
-	border-bottom:1px solid #d9d5d5;
-	position:relative;
-	margin-bottom:25px;
-	&:before{
-		display:inline-block;
-		content:"";
-		width:15px;
-		height:15px;
-		background:#d9d5d5;
-		position:absolute;
-		right:0;
-		top:100%;
-		margin-top:-8px;
-		.radius(50%);
+		font-size:17px;
+		font-weight:300;
 	}
 }
 
@@ -1199,7 +977,7 @@ ______________________*/
 	color: @green !important;
 }
 .theme-text{
-	color:@themeColor !important;
+	font-weight:bold;
 }
 .fl{ float:left}
 .fr{ float:right}
@@ -1251,59 +1029,80 @@ ______________________*/
 
 }
 @media (max-width: 979px) {
-.shadow-bottom{
-	background-size: 97% auto;
-	padding-bottom:35px;
-}
+/***********************
+	Header Setting
+************************/
 .navbar{
+	margin-bottom:15px;
 	min-height:inherit;
+	.navbar-nav {
+		> li {
+			> a{
+				text-transform:capitalize;
+				font-size:@baseFont;
+				padding:0 8px;
+			}
+		}
+	}
+}
+.header-top{
+	padding:10px 0 5px;
 }
 
-
+.logo{
+	display:block;
+	width:200px;
+}
 .login-section{
 	padding:8px;
 }
 .navbar > .container .navbar-brand{
 	width:200px;
 }
-.navbar .navbar-nav li > a{
-	padding:10px 13px;
-	line-height:20px;
+/***********************
+	Heading Setting
+************************/
+h1{
+	font-size:50px;
 }
-.navbar-nav li > a [class^="icon-"]{
-	line-height:20px;
-}
-
-.blue-section{
+/***********************
+	buttons Setting
+************************/
+.btn-section{
+	text-align:center;
 	.btn{
-		display:block;
+		margin-bottom:10px;
 	}
 }
-.joke-section .btn, .joke-section .badge{
-	margin-bottom:5px;
-}
+/***************************************
+	Picture Jokes Detail Page Setting
+****************************************/
 
+.picture-joke-detail{
+	padding:0 0 25px;
+}
 
 
 }
 @media (max-width: 767px) {
-.shadow-bottom{
-	background-size: 93% auto;
-	padding-bottom:35px;
-}
-.navbar > .container .navbar-brand{
-	margin-left:15px;
-	width:auto;
-}
+/***********************
+	Header Setting
+************************/
+	
 .navbar .navbar-nav > li > a{
 	border:none;
 }
-.navbar-nav {
+.navbar .navbar-nav {
 	margin:0;
 	> li{
+		padding:0;
+		&:first-child{
+			padding-top:8px;
+		}
 		> a{
 			display:block;
 			border:none;
+			padding:8px;
 			.radius(0);
 		}
 	}
@@ -1312,18 +1111,22 @@ ______________________*/
 .navbar-header{
 	float:none;
 	.navbar-toggle{
-		float:left;
-		margin:8px 15px;
-		border:1px solid white;
+		margin:8px 0;
+		border:1px solid @themeColor;
 		span{
-			background: white;
+			background: @themeColor;
 		}
 		
 	}
 	
 }
+
+.logo{
+	margin-top:10px;
+	width:250px;
+}
 .login-section{
-	padding:12px;
+	padding:0;
 }
 .rtl{
 	.navbar-nav > {
@@ -1340,14 +1143,23 @@ ______________________*/
 	}
 
 }
+
+/***********************
+	Pagination Setting
+************************/
+
+
 .pagination-wrap ul{
 	text-align: center;
 	margin-bottom:15px;
 }
-
+/***********************
+	Sidebar Setting
+************************/
 #sidebar{
 	text-align:center;
 }
+.list-style-bullets,
 .icons-list{
 	text-align:left;
 }
@@ -1355,54 +1167,72 @@ ______________________*/
 #contents{
 	padding:0 0 20px !important;
 }
+/***********************
+	Content Area Setting
+************************/
 .joke-detail-section p{
 	font-size:16px;
 }
 .joke-footer{
 	text-align:center;
 }
-.joke-section .btn, .joke-section .badge{
-	margin-bottom:5px;
-}
-.box-footer{
-	text-align:center;
-	p{
-		text-align:center;
+
+
+/***********************
+	footer Setting
+************************/
+#footer{
+	.footer-nav{
+		padding:0;
 	}
 }
-.joke-section .text-right{
-	text-align: center !important;
+/***********************
+	Jokes Detail Page Setting
+************************/
+.joke-detail-section{
+	padding:0 7px;
 }
 }
 @media (max-width: 479px) {
-.shadow-bottom{
-	background-size: 90% auto;
-	padding-bottom:35px;
+/***********************
+	Header Setting
+************************/
+.login-section{
+	text-align:center;
 }
-.navbar > .container .navbar-brand{
-	margin-top:5px;
-	margin-left:15px;
+.logo{
 	width:200px;
-	height:auto;
 }
-.navbar-header .navbar-toggle{
-	margin-bottom:0;
+.login-section{
+	padding-left:0;
 }
 	
+/***********************
+	Heading Setting
+************************/	
 h1{
-	font-size:43px;
+	font-size:40px;
 }
-
+/***********************
+	buttons Setting
+************************/
 .btn{
 	margin-bottom:5px;
 	&.social-icon{
 		float:none !important;
 	}
 }
-.btn-row{
-	text-align:center;
+.input-group-btn {
+	> .btn{
+		margin-bottom:0;
+	}
 }
-.login-section{
-	padding-left:0;
+/***********************
+	Jokes Page Setting
+************************/
+.joke-section{
+	padding:15px 0 20px;
 }
+
+
 }
