@@ -107,6 +107,15 @@ p {
   padding-left: 5px;
   padding-bottom: 5px;
 }
+.rtl .list-style-bullets {
+  padding-left: 0;
+  padding-right: 15px;
+  text-align: right;
+}
+.rtl .list-style-bullets li {
+  padding-left: 0;
+  padding-right: 5px;
+}
 /* Header
 ______________________*/
 #header-wrap {
@@ -253,6 +262,7 @@ ______________________*/
 }
 #contents .white-box {
   margin-bottom: 60px;
+  text-align: left;
 }
 .theme-box {
   position: relative;
@@ -263,12 +273,20 @@ ______________________*/
   right: 0;
   margin-bottom: -60px;
 }
+.rtl .right-bottom-cartoon {
+  right: auto;
+  left: 0;
+}
 .left-bottom-cartoon {
   position: absolute;
   bottom: 0;
   left: 0;
   margin-bottom: -60px;
   z-index: 99;
+}
+.rtl .left-bottom-cartoon {
+  right: 0;
+  left: auto;
 }
 .box-header {
   background: url(../images/box-header.png);
@@ -311,6 +329,7 @@ ______________________*/
   background: url(../images/white-pattren.jpg);
   padding: 8px;
   border: 1px solid #cccccc;
+  text-align: center;
   -moz-border-radius: 3px;
   -webkit-order-radius: 3px;
   border-radius: 3px;
@@ -665,7 +684,7 @@ ______________________*/
   border-left: none;
   border-right: 1px solid #cb8fb1;
 }
-.rtl .recent-joke-wrap [class^="col-"]:last-child {
+.rtl .recent-joke-wrap [class^="col-"]:first-child {
   border-right: none;
 }
 .recent-joke {
@@ -697,6 +716,9 @@ ______________________*/
 .slider-content p {
   font-size: 18px;
   font-weight: 300;
+}
+.slider-content h3 {
+  color: #430052;
 }
 .bx-controls-direction a {
   position: absolute;
