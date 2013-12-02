@@ -898,17 +898,24 @@ ______________________*/
   color: #430052;
   padding: 10px 20px 20px;
 }
-.form-control:focus {
+.modal-body .form-control:focus {
   border-color: #430052;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(67, 0, 82, 0.6);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(171, 139, 10, 0.6);
 }
-.joke-detail-section {
-  padding: 0 20px;
+.rtl .close {
+  float: left;
 }
-.joke-detail-section p {
-  font-size: 17px;
-  font-weight: 300;
+@media (max-width: 767px) {
+  .model-wrap {
+    margin: 15px;
+  }
+  .model-wrap .btn {
+    width: 100%;
+  }
 }
+/**********************
+	 SignUp/Login
+ **********************/
 /**********************
 	 Global Classes
  **********************/
